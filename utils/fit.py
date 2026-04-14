@@ -8,9 +8,9 @@ def fit_lane(lx, ly, rx, ry):
     return left_fit, right_fit
 
 def create_lane_overlay(mask, left_fit, right_fit):
-    h, w = mask.shape
+    # h, w = mask.shape
 
-    plot_y = np.linspace(0, h-1, h)
+    plot_y = np.linspace(0, 479, 480)
 
     left_x = left_fit[0]*plot_y**2 + left_fit[1]*plot_y + left_fit[2]
     right_x = right_fit[0]*plot_y**2 + right_fit[1]*plot_y + right_fit[2]
@@ -20,7 +20,7 @@ def create_lane_overlay(mask, left_fit, right_fit):
 
     pts = np.hstack((pts_left, pts_right)).astype(np.int32)
 
-    overlay = np.zeros((h, w, 3), dtype=np.uint8)
+    overlay = np.zeros((480,640, 3), dtype=np.uint8)
     cv2.fillPoly(overlay, [pts], (0, 255, 0))
 
     return overlay

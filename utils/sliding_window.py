@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 def sliding_window(mask, left_base, right_base):
-    h, w = mask.shape
+    # h, w = mask.shape
 
     window_height = 40
     margin = 50
@@ -10,7 +10,7 @@ def sliding_window(mask, left_base, right_base):
     lx, ly = [], []
     rx, ry = [], []
 
-    y = h
+    y = 480
 
     while y > 0:
         y_low = y - window_height
