@@ -1,7 +1,9 @@
 import cv2 as cv
 import numpy as np
 
-def get_perception_matrix():
+def get_perception_matrix(frame):
+    640,480 = frame.shape[:2]
+
     tl = (222, 387)
     bl = (70, 472)
     tr = (400, 380)
